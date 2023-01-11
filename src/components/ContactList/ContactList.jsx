@@ -21,11 +21,11 @@ export function ContactList() {
 
   return (
     <List>
-      {filterContactByName().map(({ name, phone, id }) => (
+      {filterContactByName().map(({ name, number, id }) => (
         <Item key={id}>
           <div>
             <span>
-              {name}: {phone}
+              {name}: {number}
             </span>
             <Button data="" onClick={() => dispatch(deleteContact(id))}>
               Delete

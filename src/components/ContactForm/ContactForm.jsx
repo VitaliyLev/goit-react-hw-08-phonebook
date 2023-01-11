@@ -34,7 +34,7 @@ export function ContactForm() {
 
     contactCheck
       ? alert(`${name} is already in the contacts`)
-      : dispatch(addContact({ name, phone: number }));
+      : dispatch(addContact(newContact));
   };
 
   const reset = () => {
