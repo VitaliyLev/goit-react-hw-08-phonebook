@@ -3,7 +3,7 @@ import { useEffect, lazy } from 'react';
 import { useDispatch } from 'react-redux';
 import { refreshUser } from 'redux/auth/operations';
 
-import Header from './HederLoyout/Header';
+import Header from './HeaderLoyout/Header';
 import { PublicRoute } from './Routes/PublicRoute';
 import { PrivateRoute } from './Routes/PrivateRoute';
 const HomePage = lazy(() => import('../pages/HomePage'));
