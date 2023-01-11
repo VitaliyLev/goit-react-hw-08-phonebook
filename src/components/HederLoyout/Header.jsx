@@ -5,7 +5,7 @@ import { logOut } from 'redux/auth/operations';
 import { Suspense } from 'react';
 import { selectIsLoggedIn, selectUserEmail } from 'redux/auth/selectors';
 
-export function Header() {
+export default function Header() {
   const dispatch = useDispatch();
   const isLoggedIn = useSelector(selectIsLoggedIn);
   const userEmail = useSelector(selectUserEmail);
