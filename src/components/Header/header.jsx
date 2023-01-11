@@ -34,7 +34,7 @@ export function Header() {
                 margin: '0px',
               }}
             >
-              <Link>
+              <Link to={'login'}>
                 <button
                   style={{ marginRight: '20px' }}
                   onClick={() => dispatch(logOut())}
