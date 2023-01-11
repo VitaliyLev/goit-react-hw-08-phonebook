@@ -1,4 +1,4 @@
-// import { Label } from 'components/ContactForm/ContactForm.styled';
+import { Label } from 'components/ContactForm/ContactForm.styled';
 
 export default function Registration() {
   return (
@@ -12,8 +12,7 @@ export default function Registration() {
           flexDirection: 'column',
         }}
       >
-        <input type="text" />
-        {/* <Label>
+        <Label>
           Name
           <input type="text" name="name" placeholder="Input name" />
         </Label>
@@ -24,7 +23,7 @@ export default function Registration() {
         <Label>
           Name
           <input type="password" name="password" placeholder="password" />
-        </Label> */}
+        </Label>
       </form>
     </>
   );
