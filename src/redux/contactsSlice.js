@@ -1,31 +1,11 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { fetchContacts, addContact, deleteContact } from './operations';
-import { toast } from 'react-toastify';
-
-const fetchContactsNotify = itemsLength => {
-  toast.success(`You have ${itemsLength} contacts!`, {
-    position: 'top-right',
-    autoClose: 2000,
-    hideProgressBar: false,
-    closeOnClick: true,
-    pauseOnHover: true,
-    draggable: true,
-    progress: undefined,
-    theme: 'light',
-  });
-};
-
-const deleteNotify = () =>
-  toast.success('Contact deleted!', {
-    position: 'top-right',
-    autoClose: 2000,
-    hideProgressBar: false,
-    closeOnClick: true,
-    pauseOnHover: true,
-    draggable: true,
-    progress: undefined,
-    theme: 'light',
-  });
+import {
+  notifyContactsCount,
+  notifyError,
+  notifyAddContactSuccess,
+  notifyDeleteContactSuccess,
+} from 'components/Notification/Notification';
 
 const handlePending = state => {
   state.isLoading = true;
@@ -34,7 +14,7 @@ const handlePending = state => {
 const handleRejected = (state, action) => {
   state.isLoading = false;
   state.error = action.payload;
-  toast.error('Oops, something went wrong, try again.');
+  notifyError();
 };
 
 const contactsSlice = createSlice({
@@ -51,7 +31,7 @@ const contactsSlice = createSlice({
       state.isLoading = false;
       state.error = null;
       state.items = action.payload;
-      fetchContactsNotify(state.items.length);
+      notifyContactsCount(state.items.length);
     },
     [fetchContacts.rejected]: handleRejected,
 
@@ -60,7 +40,7 @@ const contactsSlice = createSlice({
       state.isLoading = false;
       state.error = null;
       state.items.unshift(action.payload);
-      toast.success('🦄 Contact created!');
+      notifyAddContactSuccess();
     },
     [addContact.rejected]: handleRejected,
 
@@ -71,7 +51,7 @@ const contactsSlice = createSlice({
       state.items = state.items.filter(
         contact => contact.id !== action.payload.id
       );
-      deleteNotify();
+      notifyDeleteContactSuccess();
     },
     [deleteContact.rejected]: handleRejected,
   },
