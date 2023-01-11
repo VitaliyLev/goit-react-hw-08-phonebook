@@ -3,7 +3,6 @@ import Notification from 'components/Notification/Notification';
 import { useDispatch, useSelector } from 'react-redux';
 import { logOut } from 'redux/auth/operations';
 import { Suspense } from 'react';
-// import { Navigate } from 'react-router-dom';
 import { selectIsLoggedIn, selectUserEmail } from 'redux/auth/selectors';
 
 export default function Header() {
@@ -11,10 +10,6 @@ export default function Header() {
   const isLoggedIn = useSelector(selectIsLoggedIn);
   const userEmail = useSelector(selectUserEmail);
   return (
-    //     <header className={css.header}>
-    //   <Navigation />
-    //   {isLoggedIn ? <UserMenu /> : <AuthNav />}
-    // </header>
     <header>
       <div
         style={{
