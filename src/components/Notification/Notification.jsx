@@ -13,8 +13,13 @@ const notifyParams = {
   theme: 'light',
 };
 
-export const notifyContactsCount = itemsLength => {
-  toast.success(`You have ${itemsLength} contacts!`, notifyParams);
+export const notifyContactsCount = (itemsLength = null) => {
+  itemsLength === 0
+    ? toast.success(
+        'Your contact book is empty, add your contacts.',
+        notifyParams
+      )
+    : toast.success(`You have ${itemsLength} contacts!`, notifyParams);
 };
 
 export const notifyDeleteContactSuccess = () =>

@@ -9,9 +9,6 @@ export default function LoginForm() {
     e.preventDefault();
     const form = e.currentTarget;
 
-    const email = form.elements.email.value;
-    const password = form.elements.password.value;
-    console.log(email, password);
     dispatch(
       logIn({
         email: form.elements.email.value,

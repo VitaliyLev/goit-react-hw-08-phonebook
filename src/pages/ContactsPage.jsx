@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { selectIsLoading, selectError } from 'redux/contacts/selectors';
 import { fetchContacts } from 'redux/contacts/operations';
+import { selectIsLoading, selectError } from 'redux/contacts/selectors';
 
 import { ContactForm } from 'components/ContactForm/ContactForm';
 import { ContactList } from 'components/ContactList/ContactList';
@@ -18,7 +18,7 @@ const ContactsPage = () => {
   }, [dispatch]);
 
   return (
-    <main>
+    <main sx={{ bgcolor: 'background.default' }}>
       <Box>
         <h1>Phonebook</h1>
         <ContactForm />

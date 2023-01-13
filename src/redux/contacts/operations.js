@@ -4,11 +4,19 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 export const fetchContacts = createAsyncThunk(
   'contacts/fetchAll',
   async (_, thunkAPI) => {
-    try {
-      const response = await axios.get('/contacts');
-      return response.data;
-    } catch (error) {
-      return thunkAPI.rejectWithValue(error.message);
+    const state = thunkAPI.getState();
+    const isUserLoggedIn = state.auth.isLoggedIn;
+
+    if (isUserLoggedIn) {
+      // console.log(isUserLoggedIn);
+      try {
+        const response = await axios.get('/contacts');
+        return response.data;
+      } catch (error) {
+        return thunkAPI.rejectWithValue(error.message);
+      }
+      // return;
+      // return thunkAPI.rejectWithValue('Stop fetch contacts');
     }
   }
 );

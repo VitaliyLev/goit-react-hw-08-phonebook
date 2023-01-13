@@ -4,4 +4,6 @@ export const selectUser = state => state.auth.user;
 
 export const selectIsRefreshing = state => state.auth.isRefreshing;
 
-export const selectUserEmail = state => state.auth.user.email;
+// export const selectIsToken = state => state.auth.token;
+
+export const selectUserData = state => state.auth.user;
